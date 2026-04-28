@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chi sono — LLjournal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #1a3a2a;
+    --bg-elev: #1f4530;
+    --bg-card: #173324;
+    --ink: #ffffff;
+    --ink-body: #c8d4cc;
+    --ink-dim: #7a9988;
+    --accent: #5dbd8a;
+    --line: rgba(255,255,255,0.12);
+    --line-strong: rgba(255,255,255,0.20);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink-body);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* TOP BAR */
+  .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(26, 58, 42, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .topbar a.brand-link {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    transition: color 0.2s;
+  }
+  .topbar a.brand-link:hover { color: var(--accent); }
+  .topbar nav { display: flex; gap: 32px; }
+  .topbar nav a { color: var(--ink-body); text-decoration: none; transition: color 0.2s; }
+  .topbar nav a:hover { color: var(--accent); }
+  .topbar nav a.active { color: var(--accent); }
+
+  /* PAGE HEADER */
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 140px 40px 80px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .page-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .page-meta::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+
+  .page-header h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(56px, 9vw, 120px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 100px 40px 80px;
+    position: relative;
+    z-index: 2;
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--ink-body);
+  }
+
+  /* Drop cap */
+  .content > p:first-of-type::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 5.4em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.04em 0.1em -0.04em 0;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144;
+  }
+
+  .content p {
+    margin-bottom: 32px;
+  }
+
+  .content p strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .content p em {
+    font-style: italic;
+    color: var(--ink-dim);
+  }
+
+  /* Section heading */
+  .content h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 80px 0 28px;
+    color: var(--ink);
+  }
+  .content h2 .num {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    vertical-align: top;
+    margin-right: 14px;
+    padding-top: 12px;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    margin: 72px 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .pull-quote::before, .pull-quote::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+    margin: 28px auto;
+  }
+  .pull-quote em { color: var(--accent); font-style: italic; }
+
+  /* Signature block */
+  .signature {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .signature .name { color: var(--ink); font-size: 13px; }
+  .signature a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .signature a:hover { opacity: 0.7; }
+
+  /* End mark */
+  .end-mark {
+    text-align: center;
+    margin: 80px 0 40px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--accent);
+  }
+
+  /* Page footer */
+  .page-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+    position: relative;
+    z-index: 2;
+  }
+  .back-btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border: 1px solid var(--line-strong);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-body);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .back-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Site footer */
+  footer.site-foot {
+    padding: 40px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+    margin-top: 60px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .brand-foot {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .brand-foot .ll { color: var(--accent); font-weight: 900; font-style: normal; }
+  .footer-right { display: flex; gap: 24px; align-items: center; }
+  .footer-right a { color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+  .footer-right a:hover { color: var(--accent); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); animation: reveal 1s cubic-bezier(0.2,0.8,0.2,1) forwards; }
+  .reveal-1 { animation-delay: 0.05s; }
+  .reveal-2 { animation-delay: 0.2s; }
+  @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 900px) {
+    .topbar { padding: 14px 20px; }
+    .topbar nav { gap: 20px; }
+    .page-header { padding: 110px 20px 60px; }
+    .content { padding: 60px 20px; font-size: 17px; }
+    .signature { flex-direction: column; gap: 12px; }
+    .pull-quote { font-size: 22px; }
+    .page-footer { padding: 20px 20px 60px; }
+    footer.site-foot { padding: 32px 20px; }
+    .footer-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="brand-link">LLjournal</a>
+  <nav>
+    <a href="index.html">Articoli</a>
+    <a href="index.html#manifesto">Manifesto</a>
+    <a href="chi-sono.html" class="active">Chi sono</a>
+  </nav>
+</div>
+
+<header class="page-header">
+  <div class="page-meta reveal reveal-1">§ Chi sono</div>
+  <h1 class="reveal reveal-2">Ciao.<br>Sono Tommaso.</h1>
+</header>
+
+<div class="content">
+
+  <p>E questo è il mio angolo di motori. Iniziamo dal principio, perché se sei qui per la prima volta — benvenuto — e ti devi fare un'idea di dove sei finito.</p>
+
+  <p>Ho 22 anni, sono fiorentino e vivo a Milano. Mio padre, a un certo punto della mia vita, mi ha messo davanti a uno schermo e mi ha detto: guarda. Stava guardando una gara. Io ho guardato. E non ho mai smesso.</p>
+
+  <div class="pull-quote">
+    La passione per i motori, nel mio caso, non è rimasta solo <em>una cosa da divano</em>.
+  </div>
+
+  <p>Ho fondato <strong>Lucky Lap</strong>: un brand che nasce dall'idea di rendere elegante questa passione — abbigliamento e accessori per chi ama le auto, ma con un'estetica che non urla. Qualcosa che puoi indossare anche lontano da un circuito, che parla di motori a chi li conosce senza sbatterli in faccia a chi non li conosce. Se vuoi saperne di più, trovi tutto su <a href="https://luckylap.com" style="color: var(--accent); text-decoration: none;" target="_blank">luckylap.com</a>.</p>
+
+  <p>Questo blog è un'altra cosa. È il posto dove coltivo la mia passione per il motorsport — non il brand, io. Due mondi che convivono, ma che non vanno confusi.</p>
+
+  <h2><span class="num">§ 01</span>Perché la Carrera Cup Italia e la Supercup</h2>
+
+  <p>Ho scelto di seguire due campionati: la <strong>Porsche Carrera Cup Italia</strong> e la <strong>Porsche Mobil 1 Supercup</strong>. La scelta non è casuale, ma non è nemmeno semplicissima da spiegare.</p>
+
+  <p>La Carrera Cup Italia è il campionato nazionale monomarca Porsche — tutti in pista con la stessa vettura, la 911 GT3 Cup, e un regolamento costruito per tenere le variabili tecniche il più basse possibile. Il budget conta, certo — come in ogni categoria del motorsport — ma il campo è livellato abbastanza da rendere le gare vere.</p>
+
+  <div class="pull-quote">
+    In griglia trovi giovani talenti, piloti navigati e gentleman driver. Tre mondi sulla stessa pista, nello stesso fine settimana. <em>È difficile annoiarsi.</em>
+  </div>
+
+  <p>La Supercup è un'altra cosa. È il vertice assoluto del sistema monomarca Porsche a livello mondiale: i migliori piloti dei campionati nazionali di tutta Europa si misurano sulla stessa griglia, in un campionato organizzato direttamente da Porsche AG. Dal 1993. Earl Bamber vinse il titolo Supercup nel 2014: pochi mesi dopo era a Le Mans come pilota factory Porsche, e vinse. Non è un caso isolato — è il percorso.</p>
+
+  <p>Seguire la PCCI e la Supercup insieme significa seguire una storia intera: il campionato nazionale dove i talenti emergono, e il palcoscenico internazionale dove si misurano davvero.</p>
+
+  <h2><span class="num">§ 02</span>Cosa troverai qui</h2>
+
+  <p>Articoli di gara — ma non i soliti. Non il copia-incolla del comunicato stampa, non solo tempi e posizioni. Voglio raccontare quello che succede davvero: la manovra che ha deciso tutto, il regolamento che in pochi conoscono, il pilota che tre anni fa correva in Formula 4 e adesso è sul podio. Tecnico quanto basta, ma spiegato in modo che chiunque possa seguire — appassionato o no.</p>
+
+  <p>Profili piloti, approfondimenti, curiosità. Per dare un volto e una storia ai nomi che scorrono sulla griglia di partenza. E tutto quello che mi sembra valga la pena raccontare, lungo una stagione che — mentre scrivo questo — è già cominciata.</p>
+
+  <div class="end-mark">✦</div>
+
+  <div class="signature">
+    <span class="name">Tommaso</span>
+    <span>Editor & Founder · LLjournal · 2026</span>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  <a href="index.html" class="back-btn">← Torna agli articoli</a>
+</div>
+
+<footer class="site-foot">
+  <div class="footer-inner">
+    <a href="index.html" class="brand-foot"><span class="ll">LL</span>journal</a>
+    <div class="footer-right">
+      <span>© 2026</span>
+      <a href="https://luckylap.com" target="_blank">luckylap.com</a>
+      <span>Editor & Founder · Tommaso Ieri</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
