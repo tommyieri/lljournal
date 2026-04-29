@@ -412,8 +412,15 @@
     .content-wrap { padding: 40px 20px 80px; }
     .inner-tab { padding: 14px 16px; font-size: 9px; }
     table { font-size: 13px; }
-    td.team { display: none; }
-    thead th:nth-child(3) { display: none; }
+    #panel-assoluta td.team,
+    #panel-rookie td.team,
+    #panel-michelin td.team,
+    #panel-team td.team { display: none; }
+    #panel-assoluta thead th:nth-child(3),
+    #panel-rookie thead th:nth-child(3),
+    #panel-michelin thead th:nth-child(3),
+    #panel-team thead th:nth-child(3) { display: none; }
+    #panel-taycan table { font-size: 12px; }
     .calendar-grid { grid-template-columns: 1fr 1fr; }
     .supercup-note { padding: 24px 20px; }
     .footer-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
