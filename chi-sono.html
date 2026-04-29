@@ -67,10 +67,15 @@
     color: var(--ink);
     text-decoration: none;
     font-weight: 500;
-    letter-spacing: 0.22em;
     transition: color 0.2s;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    text-transform: none;
+    font-size: 16px;
+    letter-spacing: -0.01em;
   }
-  .topbar a.brand-link:hover { color: var(--accent); }
+  .topbar a.brand-link .ll { color: var(--accent); font-weight: 900; font-style: normal; }
+  .topbar a.brand-link:hover { color: var(--ink); opacity: 0.8; }
   .topbar nav { display: flex; gap: 32px; }
   .topbar nav a { color: var(--ink-body); text-decoration: none; transition: color 0.2s; }
   .topbar nav a:hover { color: var(--accent); }
@@ -304,7 +309,7 @@
 <body>
 
 <div class="topbar">
-  <a href="index.html" class="brand-link">LLgrid</a>
+  <a href="index.html" class="brand-link"><span class="ll">LL</span>grid</a>
   <nav>
     <a href="index.html">Articoli</a>
 <a href="classifiche.html">Classifiche</a>
