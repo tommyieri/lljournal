@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Classifiche 2026 — LLjournal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #1a3a2a;
+    --bg-elev: #1f4530;
+    --bg-card: #173324;
+    --ink: #ffffff;
+    --ink-body: #c8d4cc;
+    --ink-dim: #7a9988;
+    --accent: #5dbd8a;
+    --line: rgba(255,255,255,0.12);
+    --line-strong: rgba(255,255,255,0.20);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink-body);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* TOP BAR */
+  .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(26, 58, 42, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .topbar a.brand-link {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    transition: color 0.2s;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    text-transform: none;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+  .topbar a.brand-link .ll { color: var(--accent); font-weight: 900; font-style: normal; }
+  .topbar a.brand-link:hover { color: var(--ink); opacity: 0.8; }
+  .topbar nav { display: flex; gap: 32px; }
+  .topbar nav a { color: var(--ink-body); text-decoration: none; transition: color 0.2s; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .topbar nav a:hover { color: var(--accent); }
+  .topbar nav a.active { color: var(--accent); }
+
+  /* PAGE HEADER */
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 140px 40px 60px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid var(--line);
+  }
+  .page-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .page-meta::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+  .page-header h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+  }
+  .page-header .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 20px;
+  }
+
+  /* CHAMPIONSHIP TABS */
+  .champ-tabs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 0;
+  }
+  .champ-tab {
+    padding: 24px 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    user-select: none;
+    margin-bottom: -1px;
+  }
+  .champ-tab:hover { color: var(--ink-body); }
+  .champ-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* CHAMPIONSHIP PANELS */
+  .champ-panel { display: none; }
+  .champ-panel.active { display: block; }
+
+  /* SECTION INNER TABS */
+  .content-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .inner-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .inner-tab {
+    padding: 16px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    user-select: none;
+    margin-bottom: -1px;
+  }
+  .inner-tab:hover { color: var(--ink-body); }
+  .inner-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .inner-panel { display: none; }
+  .inner-panel.active { display: block; }
+
+  /* TABLE HEADER */
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+  .table-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .table-round {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin-bottom: 60px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+  }
+
+  thead th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-align: left;
+    padding: 14px 20px 14px 0;
+    border-bottom: 1px solid var(--line-strong);
+    white-space: nowrap;
+  }
+  thead th:first-child { width: 60px; }
+  thead th:last-child { text-align: right; padding-right: 0; }
+
+  tbody td {
+    padding: 20px 20px 20px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-body);
+    vertical-align: middle;
+  }
+  tbody td:last-child { text-align: right; padding-right: 0; }
+  tbody tr:hover { background: rgba(93,189,138,0.04); }
+  tbody tr.first { background: rgba(93,189,138,0.07); }
+  tbody tr.first td { color: var(--ink); }
+
+  td.pos {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    width: 50px;
+  }
+  tr.first td.pos { color: var(--accent); }
+
+  td.driver { font-weight: 500; color: var(--ink); }
+  td.team { color: var(--ink-dim); font-size: 14px; }
+  td.nat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-dim);
+    letter-spacing: 0.1em;
+  }
+  td.pts {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    text-align: right;
+  }
+  tr.first td.pts { color: var(--accent); }
+
+  .table-note {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--ink-dim);
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* CALENDAR */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .cal-item {
+    background: var(--bg);
+    padding: 28px 24px;
+    transition: background 0.2s;
+  }
+  .cal-item:hover { background: var(--bg-elev); }
+  .cal-item.future { opacity: 0.6; }
+  .cal-item .round-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .cal-item .circuit {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .cal-item .gp-name {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--ink-dim);
+    margin-bottom: 16px;
+  }
+  .cal-item .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .cal-item .status {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+  }
+  .cal-item .status.incoming {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* SUPERCUP NOTE */
+  .supercup-note {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+    padding: 32px 40px;
+    margin-bottom: 48px;
+  }
+  .supercup-note p {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-body);
+  }
+  .supercup-note p em { color: var(--accent); font-style: italic; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .brand-foot {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .brand-foot .ll { color: var(--accent); font-weight: 900; font-style: normal; }
+  .footer-right { display: flex; gap: 24px; align-items: center; }
+  .footer-right a { color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+  .footer-right a:hover { color: var(--accent); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); animation: reveal 0.8s cubic-bezier(0.2,0.8,0.2,1) forwards; }
+  .reveal-1 { animation-delay: 0.05s; }
+  .reveal-2 { animation-delay: 0.2s; }
+  @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 900px) {
+    .topbar { padding: 14px 20px; }
+    .topbar nav { gap: 16px; }
+    .topbar nav a:nth-child(2) { display: none; }
+    .page-header { padding: 110px 20px 48px; }
+    .champ-tabs { padding: 0 20px; overflow-x: auto; gap: 0; }
+    .champ-tab { padding: 18px 20px; font-size: 10px; white-space: nowrap; }
+    .content-wrap { padding: 40px 20px 80px; }
+    .inner-tab { padding: 14px 16px; font-size: 9px; }
+    table { font-size: 13px; }
+    td.team { display: none; }
+    thead th:nth-child(3) { display: none; }
+    .calendar-grid { grid-template-columns: 1fr 1fr; }
+    .supercup-note { padding: 24px 20px; }
+    .footer-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+
+  @media (max-width: 600px) {
+    .calendar-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="index.html" class="brand-link"><span class="ll">LL</span>journal</a>
+  <nav>
+    <a href="index.html">Articoli</a>
+    <a href="index.html#manifesto">Intenzione</a>
+    <a href="chi-sono.html">Chi sono</a>
+    <a href="classifiche.html" class="active">Classifiche</a>
+  </nav>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-meta reveal reveal-1">§ Classifiche 2026</div>
+  <h1 class="reveal reveal-2">Dove siamo.</h1>
+  <div class="sub reveal reveal-2">Aggiornate dopo Round 1 — Imola, 25-26 Aprile 2026</div>
+</header>
+
+<!-- CHAMPIONSHIP TABS -->
+<div class="champ-tabs">
+  <div class="champ-tab active" onclick="switchChamp('pcci')">Carrera Cup Italia</div>
+  <div class="champ-tab" onclick="switchChamp('supercup')">Porsche Supercup</div>
+</div>
+
+<!-- ===================== PCCI PANEL ===================== -->
+<div class="champ-panel active" id="panel-pcci">
+  <div class="content-wrap">
+
+    <!-- Inner tabs -->
+    <div class="inner-tabs">
+      <div class="inner-tab active" onclick="switchInner('assoluta')">Assoluta</div>
+      <div class="inner-tab" onclick="switchInner('rookie')">Rookie</div>
+      <div class="inner-tab" onclick="switchInner('michelin')">Michelin Cup</div>
+      <div class="inner-tab" onclick="switchInner('team')">Team</div>
+      <div class="inner-tab" onclick="switchInner('taycan')">Taycan Rush</div>
+    </div>
+
+    <!-- ASSOLUTA -->
+    <div class="inner-panel active" id="panel-assoluta">
+      <div class="table-header">
+        <h2 class="table-title">Classifica Assoluta</h2>
+        <span class="table-round">Dopo Round 1 · 2 gare</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pos.</th>
+              <th>Pilota</th>
+              <th>G1</th>
+              <th>G2</th>
+              <th>Punti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="first">
+              <td class="pos">1°</td>
+              <td class="driver">Senna Van Soelen <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">17 (4°)</td>
+              <td class="team">27 (1°)</td>
+              <td class="pts">44</td>
+            </tr>
+            <tr>
+              <td class="pos">2°</td>
+              <td class="driver">Pietro Delli Guanti</td>
+              <td class="team">20 (2°)</td>
+              <td class="team">20 (2°)</td>
+              <td class="pts">40</td>
+            </tr>
+            <tr>
+              <td class="pos">3°</td>
+              <td class="driver">Gianmarco Quaresmini</td>
+              <td class="team">25 (1°)</td>
+              <td class="team">12 (5°)</td>
+              <td class="pts">37</td>
+            </tr>
+            <tr>
+              <td class="pos">4°</td>
+              <td class="driver">Andrea Bristot <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">17 (3°)</td>
+              <td class="team">18 (3°)</td>
+              <td class="pts">35</td>
+            </tr>
+            <tr>
+              <td class="pos">5°</td>
+              <td class="driver">Lirim Zendeli</td>
+              <td class="team">10 (6°)</td>
+              <td class="team">14 (4°)</td>
+              <td class="pts">24</td>
+            </tr>
+            <tr>
+              <td class="pos">6°</td>
+              <td class="driver">Harley Haughton <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">9 (7°)</td>
+              <td class="team">10 (6°)</td>
+              <td class="pts">19</td>
+            </tr>
+            <tr>
+              <td class="pos">7°</td>
+              <td class="driver">Diego Bertonelli</td>
+              <td class="team">12 (5°)</td>
+              <td class="team">6 (10°)</td>
+              <td class="pts">18</td>
+            </tr>
+            <tr>
+              <td class="pos">8°</td>
+              <td class="driver">Giorgio Amati</td>
+              <td class="team">6 (10°)</td>
+              <td class="team">8 (8°)</td>
+              <td class="pts">14</td>
+            </tr>
+            <tr>
+              <td class="pos">9°</td>
+              <td class="driver">Marco Butti <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">7 (9°)</td>
+              <td class="team">3 (13°)</td>
+              <td class="pts">10</td>
+            </tr>
+            <tr>
+              <td class="pos">10°</td>
+              <td class="driver">Aldo Festante</td>
+              <td class="team">0 (NC)</td>
+              <td class="team">9 (7°)</td>
+              <td class="pts">9</td>
+            </tr>
+            <tr>
+              <td class="pos">10°</td>
+              <td class="driver">Cristian Bertuca <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">8 (8°)</td>
+              <td class="team">1 (15°)</td>
+              <td class="pts">9</td>
+            </tr>
+            <tr>
+              <td class="pos">12°</td>
+              <td class="driver">Callum Voisin <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">0 (22°)</td>
+              <td class="team">7 (9°)</td>
+              <td class="pts">7</td>
+            </tr>
+            <tr>
+              <td class="pos">13°</td>
+              <td class="driver">Ermanno Quintieri <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">5 (11°)</td>
+              <td class="team">0 (16°)</td>
+              <td class="pts">5</td>
+            </tr>
+            <tr>
+              <td class="pos">13°</td>
+              <td class="driver">Alberto Cerqui</td>
+              <td class="team">0 (NC)</td>
+              <td class="team">5 (11°)</td>
+              <td class="pts">5</td>
+            </tr>
+            <tr>
+              <td class="pos">15°</td>
+              <td class="driver">Filippo Fant</td>
+              <td class="team">0 (26°)</td>
+              <td class="team">4 (12°)</td>
+              <td class="pts">4</td>
+            </tr>
+            <tr>
+              <td class="pos">15°</td>
+              <td class="driver">Luciano Martinez</td>
+              <td class="team">4 (12°)</td>
+              <td class="team">0 (28°)</td>
+              <td class="pts">4</td>
+            </tr>
+            <tr>
+              <td class="pos">17°</td>
+              <td class="driver">Cesare Brusa <span style="color:var(--ink-dim);font-size:10px;font-family:'JetBrains Mono',monospace;">MC</span></td>
+              <td class="team">3 (13°)</td>
+              <td class="team">0 (19°)</td>
+              <td class="pts">3</td>
+            </tr>
+            <tr>
+              <td class="pos">18°</td>
+              <td class="driver">Lorenzo Cheli</td>
+              <td class="team">2 (14°)</td>
+              <td class="team">0 (20°)</td>
+              <td class="pts">2</td>
+            </tr>
+            <tr>
+              <td class="pos">18°</td>
+              <td class="driver">Nathan Schaap</td>
+              <td class="team">0 (NC)</td>
+              <td class="team">2 (14°)</td>
+              <td class="pts">2</td>
+            </tr>
+            <tr>
+              <td class="pos">20°</td>
+              <td class="driver">Andrea D'Amico <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">1 (15°)</td>
+              <td class="team">0 (18°)</td>
+              <td class="pts">1</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Benjamin Berta <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">0 (16°)</td>
+              <td class="team">0 (21°)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Stefano Stefanelli <span style="color:var(--ink-dim);font-size:10px;font-family:'JetBrains Mono',monospace;">MC</span></td>
+              <td class="team">0 (17°)</td>
+              <td class="team">0 (24°)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">William Mezzetti</td>
+              <td class="team">0 (NC)</td>
+              <td class="team">0 (17°)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Alex De Giacomi <span style="color:var(--ink-dim);font-size:10px;font-family:'JetBrains Mono',monospace;">MC</span></td>
+              <td class="team">0 (19°)</td>
+              <td class="team">0 (23°)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Andrea Girondi <span style="color:var(--ink-dim);font-size:10px;font-family:'JetBrains Mono',monospace;">MC</span></td>
+              <td class="team">0 (20°)</td>
+              <td class="team">0 (NC)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Paul De Prenter <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">0 (21°)</td>
+              <td class="team">0 (22°)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Francesco M. Fenici <span style="color:var(--ink-dim);font-size:10px;font-family:'JetBrains Mono',monospace;">MC</span></td>
+              <td class="team">0 (23°)</td>
+              <td class="team">0 (26°)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Andrea Galli <span style="color:var(--ink-dim);font-size:10px;font-family:'JetBrains Mono',monospace;">MC</span></td>
+              <td class="team">0 (24°)</td>
+              <td class="team">0 (27°)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Horia T. Chirigut <span style="color:var(--ink-dim);font-size:10px;font-family:'JetBrains Mono',monospace;">MC</span></td>
+              <td class="team">0 (25°)</td>
+              <td class="team">0 (29°)</td>
+              <td class="pts">0</td>
+            </tr>
+            <tr style="opacity:0.5;">
+              <td class="pos">—</td>
+              <td class="driver">Karen Gaillard <span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace;">R</span></td>
+              <td class="team">0 (NC)</td>
+              <td class="team">—</td>
+              <td class="pts">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-note"><span style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:10px;">R</span> = Rookie &nbsp;·&nbsp; <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-dim);">MC</span> = Michelin Cup &nbsp;·&nbsp; NC = Non classificato. Fonte: classifica ufficiale PCCI dopo Round 1 (Imola, 25-26 apr 2026).</div>
+      </div>
+    </div>
+
+    <!-- ROOKIE -->
+    <div class="inner-panel" id="panel-rookie">
+      <div class="table-header">
+        <h2 class="table-title">Classifica Rookie</h2>
+        <span class="table-round">Dopo Round 1 · 2 gare</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pos.</th>
+              <th>Pilota</th>
+              <th>Team</th>
+              <th>Punti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="first">
+              <td class="pos">1°</td>
+              <td class="driver">Senna Van Soelen</td>
+              <td class="team">Target</td>
+              <td class="pts">44</td>
+            </tr>
+            <tr>
+              <td class="pos">2°</td>
+              <td class="driver">Andrea Bristot</td>
+              <td class="team">Dinamic Motorsport</td>
+              <td class="pts">35</td>
+            </tr>
+            <tr>
+              <td class="pos">3°</td>
+              <td class="driver">Harley Haughton</td>
+              <td class="team">Enrico Fulgenzi Racing</td>
+              <td class="pts">19</td>
+            </tr>
+            <tr>
+              <td class="pos">4°</td>
+              <td class="driver">Marco Butti</td>
+              <td class="team">—</td>
+              <td class="pts">10</td>
+            </tr>
+            <tr>
+              <td class="pos">5°</td>
+              <td class="driver">Cristian Bertuca</td>
+              <td class="team">—</td>
+              <td class="pts">9</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- MICHELIN CUP -->
+    <div class="inner-panel" id="panel-michelin">
+      <div class="table-header">
+        <h2 class="table-title">Michelin Cup</h2>
+        <span class="table-round">Dopo Round 1 · 2 gare</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pos.</th>
+              <th>Pilota</th>
+              <th>Team</th>
+              <th>Punti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="first">
+              <td class="pos">1°</td>
+              <td class="driver">Cesare Brusa</td>
+              <td class="team">Prima Ghinzani Msp.</td>
+              <td class="pts">30</td>
+            </tr>
+            <tr>
+              <td class="pos">2°</td>
+              <td class="driver">Stefano Stefanelli</td>
+              <td class="team">Malucelli Motorsport</td>
+              <td class="pts">22</td>
+            </tr>
+            <tr>
+              <td class="pos">3°</td>
+              <td class="driver">Alex De Giacomi</td>
+              <td class="team">Ebimotors</td>
+              <td class="pts">20</td>
+            </tr>
+            <tr>
+              <td class="pos">4°</td>
+              <td class="driver">Paolo Gnemmi</td>
+              <td class="team">Ebimotors</td>
+              <td class="pts">18</td>
+            </tr>
+            <tr>
+              <td class="pos">5°</td>
+              <td class="driver">Francesco M. Fenici</td>
+              <td class="team">The Driving Experiences</td>
+              <td class="pts">11</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-note">La colonna Centro Porsche di riferimento sarà aggiunta al prossimo aggiornamento.</div>
+      </div>
+    </div>
+
+    <!-- TEAM -->
+    <div class="inner-panel" id="panel-team">
+      <div class="table-header">
+        <h2 class="table-title">Classifica Team</h2>
+        <span class="table-round">Dopo Round 1 · 2 gare</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pos.</th>
+              <th>Team</th>
+              <th>G1</th>
+              <th>Punti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="first">
+              <td class="pos">1°</td>
+              <td class="driver">Prima Ghinzani Motorsport</td>
+              <td class="team">32 (1°)</td>
+              <td class="pts">55</td>
+            </tr>
+            <tr>
+              <td class="pos">2°</td>
+              <td class="driver">Target</td>
+              <td class="team">17 (3°)</td>
+              <td class="pts">52</td>
+            </tr>
+            <tr>
+              <td class="pos">3°</td>
+              <td class="driver">BeDriver</td>
+              <td class="team">26 (4°)</td>
+              <td class="pts">50</td>
+            </tr>
+            <tr>
+              <td class="pos">4°</td>
+              <td class="driver">Dinamic Motorsport</td>
+              <td class="team">20 (2°)</td>
+              <td class="pts">41</td>
+            </tr>
+            <tr>
+              <td class="pos">5°</td>
+              <td class="driver">Enrico Fulgenzi Racing</td>
+              <td class="team">12 (6°)</td>
+              <td class="pts">24</td>
+            </tr>
+            <tr>
+              <td class="pos">6°</td>
+              <td class="driver">Omnia Motorsport</td>
+              <td class="team">15 (7°)</td>
+              <td class="pts">20</td>
+            </tr>
+            <tr>
+              <td class="pos">7°</td>
+              <td class="driver">The Driving Experiences</td>
+              <td class="team">9 (8°)</td>
+              <td class="pts">14</td>
+            </tr>
+            <tr>
+              <td class="pos">8°</td>
+              <td class="driver">Ombra Racing</td>
+              <td class="team">0 (16°)</td>
+              <td class="pts">12</td>
+            </tr>
+            <tr>
+              <td class="pos">9°</td>
+              <td class="driver">Ebimotors</td>
+              <td class="team">3 (13°)</td>
+              <td class="pts">9</td>
+            </tr>
+            <tr>
+              <td class="pos">9°</td>
+              <td class="driver">Malucelli Motorsport</td>
+              <td class="team">9 (11°)</td>
+              <td class="pts">9</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-note">La vettura Q8 Hi Perform (Delli Guanti) è trasparente per regolamento PCCI (Art. A.27.6). La classifica include solo i due piloti nominati da ciascun team in fase d'iscrizione.</div>
+      </div>
+    </div>
+
+    <!-- TAYCAN RUSH -->
+    <div class="inner-panel" id="panel-taycan">
+      <div class="table-header">
+        <h2 class="table-title">Taycan Rush</h2>
+        <span class="table-round">Dopo Round 1 · Imola</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pos.</th>
+              <th>Pilota</th>
+              <th>Centro Porsche</th>
+              <th>Punti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="first">
+              <td class="pos">1°</td>
+              <td class="driver">Riccardo Tucci</td>
+              <td class="team">Centro Porsche Bergamo</td>
+              <td class="pts">—</td>
+            </tr>
+            <tr>
+              <td class="pos">2°</td>
+              <td class="driver">Ilarione Introna</td>
+              <td class="team">Centro Porsche Bari</td>
+              <td class="pts">—</td>
+            </tr>
+            <tr>
+              <td class="pos">3°</td>
+              <td class="driver">Andrea Levy</td>
+              <td class="team">Centro Porsche Torino</td>
+              <td class="pts">—</td>
+            </tr>
+            <tr>
+              <td class="pos">4°</td>
+              <td class="driver">Federica Levy</td>
+              <td class="team">Centro Porsche Padova</td>
+              <td class="pts">—</td>
+            </tr>
+            <tr>
+              <td class="pos">5°</td>
+              <td class="driver">Fausto Gasparetto</td>
+              <td class="team">Centri Porsche Milano</td>
+              <td class="pts">—</td>
+            </tr>
+            <tr>
+              <td class="pos">6°</td>
+              <td class="driver">Alberto Benetti</td>
+              <td class="team">Centro Porsche Bologna</td>
+              <td class="pts">—</td>
+            </tr>
+            <tr>
+              <td class="pos">7°</td>
+              <td class="driver">Pietro Capoferri</td>
+              <td class="team">Centro Porsche Brescia</td>
+              <td class="pts">—</td>
+            </tr>
+            <tr>
+              <td class="pos">8°</td>
+              <td class="driver">Mario F. Cappella</td>
+              <td class="team">Centri Porsche Roma</td>
+              <td class="pts">—</td>
+            </tr>
+            <tr>
+              <td class="pos">9°</td>
+              <td class="driver">Vincenzo Dell'Oglio</td>
+              <td class="team">Centro Porsche Catania</td>
+              <td class="pts">—</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-note">* = Best lap in gara &nbsp;·&nbsp; ** = Pole position. Il sistema di punteggio Taycan Rush è cumulativo sul weekend (FP + Manche 1-2-3). Prossimo appuntamento: Misano, 9-10 maggio.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== SUPERCUP PANEL ===================== -->
+<div class="champ-panel" id="panel-supercup">
+  <div class="content-wrap">
+
+    <div class="table-header" style="margin-bottom: 32px;">
+      <h2 class="table-title">Porsche Mobil 1 Supercup</h2>
+      <span class="table-round">Stagione 2026 · 34ª edizione</span>
+    </div>
+
+    <div class="supercup-note">
+      <p>La stagione 2026 del Supercup non è ancora iniziata. Il primo round è in programma a <em>Monaco il 4-7 giugno</em>, a supporto del Gran Premio di Formula 1. Quest'anno debutta la nuova Porsche 911 Cup (992.2) — prima volta sulla griglia internazionale. La griglia piloti sarà aggiornata alla conferma delle entry list ufficiali.</p>
+    </div>
+
+    <div class="table-header" style="margin-bottom: 24px;">
+      <h2 class="table-title" style="font-size: clamp(22px, 2.5vw, 32px);">Calendario 2026</h2>
+    </div>
+
+    <div class="calendar-grid">
+      <div class="cal-item future">
+        <div class="round-num">Round 1</div>
+        <div class="circuit">Monaco</div>
+        <div class="gp-name">Grand Prix de Monaco</div>
+        <div class="date">4 – 7 Giugno 2026</div>
+        <span class="status incoming">Prossimo</span>
+      </div>
+      <div class="cal-item future">
+        <div class="round-num">Round 2</div>
+        <div class="circuit">Barcellona</div>
+        <div class="gp-name">Gran Premio de Barcelona-Catalunya</div>
+        <div class="date">12 – 14 Giugno 2026</div>
+        <span class="status">In programma</span>
+      </div>
+      <div class="cal-item future">
+        <div class="round-num">Round 3</div>
+        <div class="circuit">Spielberg</div>
+        <div class="gp-name">Austrian Grand Prix</div>
+        <div class="date">26 – 28 Giugno 2026</div>
+        <span class="status">In programma</span>
+      </div>
+      <div class="cal-item future">
+        <div class="round-num">Round 4</div>
+        <div class="circuit">Spa-Francorchamps</div>
+        <div class="gp-name">Belgian Grand Prix</div>
+        <div class="date">17 – 19 Luglio 2026</div>
+        <span class="status">In programma</span>
+      </div>
+      <div class="cal-item future">
+        <div class="round-num">Round 5</div>
+        <div class="circuit">Budapest</div>
+        <div class="gp-name">Hungarian Grand Prix</div>
+        <div class="date">24 – 26 Luglio 2026</div>
+        <span class="status">In programma</span>
+      </div>
+      <div class="cal-item future">
+        <div class="round-num">Round 6 + 7</div>
+        <div class="circuit">Zandvoort</div>
+        <div class="gp-name">Dutch Grand Prix · Doppia gara</div>
+        <div class="date">21 – 23 Agosto 2026</div>
+        <span class="status">In programma</span>
+      </div>
+      <div class="cal-item future">
+        <div class="round-num">Round 8</div>
+        <div class="circuit">Monza</div>
+        <div class="gp-name">Gran Premio d'Italia</div>
+        <div class="date">4 – 6 Settembre 2026</div>
+        <span class="status">In programma</span>
+      </div>
+    </div>
+
+    <div class="table-note">Zandvoort ospita una doppia gara per la sua ultima apparizione nel calendario Supercup. La nuova Porsche 911 Cup (992.2) debutta quest'anno nella serie.</div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="brand-foot"><span class="ll">LL</span>journal</a>
+    <div class="footer-right">
+      <span>© 2026</span>
+      <a href="https://luckylap.com" target="_blank" rel="noopener">luckylap.com</a>
+      <span>Editor & Founder · Tommaso Ieri</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function switchChamp(id) {
+    document.querySelectorAll('.champ-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.champ-panel').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('panel-' + id).classList.add('active');
+  }
+
+  function switchInner(id) {
+    document.querySelectorAll('.inner-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.inner-panel').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('panel-' + id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
