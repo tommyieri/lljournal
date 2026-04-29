@@ -6,8 +6,7 @@
 <title>LL Journal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #1a3a2a;
@@ -39,7 +38,8 @@
     pointer-events: none;
     z-index: 1;
     opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' result='noise'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
   }
 
   /* TOP BAR */
@@ -189,7 +189,7 @@
   .row-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--ink-dim); }
   .row-cat { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
   .row-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); transition: color 0.2s; }
-  .row-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-align: right; display: flex; align-items: baseline; justify-content: flex-end; gap: 12px; }
+  .row-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-align: right; display: flex; align-items: baseline; }
   .row-arrow { color: var(--accent); opacity: 0; transform: translateX(-6px); transition: all 0.3s ease; }
 
   /* MANIFESTO */
@@ -202,15 +202,34 @@
     border-top: 1px solid var(--line);
   }
   .manifesto-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; padding-top: 80px; }
-  .manifesto-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); }
-  .manifesto-text { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.45; letter-spacing: -0.01em; color: var(--ink); }
+  .manifesto-label { font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .manifesto-text { font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
   .manifesto-text em { color: var(--accent); font-style: italic; }
   .manifesto-text p + p { margin-top: 1.2em; }
-  .manifesto-sign { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim); margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .manifesto-sign { font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
 
   /* FOOTER */
   footer { padding: 40px; border-top: 1px solid var(--line); position: relative; z-index: 2; }
-  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-dim); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
   .brand-foot { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: 18px; text-transform: none; letter-spacing: -0.02em; color: var(--ink); }
   .brand-foot .ll { color: var(--accent); font-weight: 900; font-style: normal; }
   .footer-right { display: flex; align-items: center; gap: 16px; }
@@ -244,7 +263,7 @@
 <body>
 
 <div class="topbar">
-<span class="brand"><span style="color: var(--accent); font-weight: 900; font-family: 'Fraunces', serif; font-style: normal;">LL</span><span style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;">journal</span></span>
+<span class="brand"><span style="color: var(--accent); font-weight: 900; font-family: 'Fraunces', serif; font-style: normal;">LL</span><span style="font-family: 'Fraunces', serif; font-style: italic;">journal</span></span>
   <nav>
     <a href="#articles">Articoli</a>
     <a href="#manifesto">Intenzione</a>
@@ -259,7 +278,7 @@
     <span><a href="https://luckylap.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">luckylap.com</a></span>
   </div>
   <div class="masthead reveal reveal-2">
-    <h1><span class="ll-mark">LL</span>journal</h1>
+    <img src="imola-start.jpeg" alt="Imola 2026" style="width:100%; max-height:70vh; object-fit:cover; display:block;">
   </div>
   <div class="hero-bottom reveal reveal-3">
     <span>Una rivista digitale indipendente</span>
@@ -287,7 +306,7 @@
       <div class="manifesto-text">
         <p>LLjournal nasce da una passione ereditata. Non costruita, non cercata. <em>Ricevuta.</em></p>
         <p>Questo è il posto dove quella passione prende forma scritta. Storie di gara, profili piloti, regolamenti che nessuno legge finché non diventano decisivi.</p>
-        <p>Non è un aggregatore di notizie. Non è il comunicato stampa riformattato. È una rivista indipendente — con una voce sola e la convinzione che il motorsport meriti di essere raccontato con cura.</p>
+        <p>Non è un aggregatore di notizie. Non è il comunicato stampa riformattato. È una rivista indipendente — con una voce sola e la convinzione che il motorsport meriti di essere raccontato con stile, profondità e senza compromessi.</p>
       </div>
       <div class="manifesto-sign">Editor &amp; Founder · Tommaso Ieri</div>
     </div>
