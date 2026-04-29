@@ -63,8 +63,9 @@
     text-transform: uppercase;
     color: var(--ink-dim);
   }
-  .topbar a.brand-link { color: var(--ink); text-decoration: none; font-weight: 500; letter-spacing: 0.22em; transition: color 0.2s; }
-  .topbar a.brand-link:hover { color: var(--accent); }
+  .topbar a.brand-link { color: var(--ink); text-decoration: none; font-weight: 500; transition: color 0.2s; font-family: 'Fraunces', serif; font-style: italic; text-transform: none; font-size: 16px; letter-spacing: -0.01em; }
+  .topbar a.brand-link .ll { color: var(--accent); font-weight: 900; font-style: normal; }
+  .topbar a.brand-link:hover { color: var(--ink); opacity: 0.8; }
   .topbar .progress-wrap { flex: 1; margin: 0 32px; height: 1px; background: var(--line); position: relative; max-width: 400px; }
   .progress-bar { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent); width: 0%; transition: width 0.1s linear; }
   .back-link { color: var(--ink-body); text-decoration: none; transition: color 0.2s; }
@@ -419,7 +420,7 @@
 <body>
 
 <div class="topbar">
-  <a href="index.html" class="brand-link">LLgrid</a>
+  <a href="index.html" class="brand-link"><span class="ll">LL</span>grid</a>
   <div class="progress-wrap">
     <div class="progress-bar" id="progress"></div>
   </div>
