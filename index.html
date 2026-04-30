@@ -100,13 +100,12 @@
     margin: 0 -40px;
     overflow: hidden;
   }
-  .masthead img {
+  .track-scene {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 60%;
-    display: block;
     min-height: 400px;
+    max-height: 600px;
+    display: block;
   }
   .hero-bottom {
     display: flex;
@@ -260,7 +259,23 @@
     <span><a href="https://luckylap.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">luckylap.com</a></span>
   </div>
   <div class="masthead reveal reveal-2">
-    <img src="imola-start.jpeg" alt="Imola 2026">
+    <svg class="track-scene" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="racing-line" d="M 525,300 A 225,225 0 0,1 75,300 A 225,225 0 0,1 525,300"/>
+      </defs>
+      <!-- erba esterna -->
+      <circle cx="300" cy="300" r="290" fill="#1e3d2a"/>
+      <!-- asfalto -->
+      <circle cx="300" cy="300" r="260" fill="none" stroke="#3a3a3a" stroke-width="70"/>
+      <!-- erba interna -->
+      <circle cx="300" cy="300" r="190" fill="#1e3d2a"/>
+      <!-- oggetto di test -->
+      <rect x="-18" y="-8" width="36" height="16" rx="2" fill="#ffffff">
+        <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#racing-line"/>
+        </animateMotion>
+      </rect>
+    </svg>
   </div>
   <div class="hero-bottom reveal reveal-3">
     <span>Una rivista digitale indipendente</span>
