@@ -1,11 +1,21 @@
-<!-- New Complex Race Track Visualization -->
-<div class="race-track">
-  <svg viewBox="0 0 800 600">
-    <path d="M 100 500 C 200 300, 600 300, 700 500" stroke="black" fill="transparent" stroke-width="5"/>
-    <path d="M 200 500 Q 300 400, 400 500 T 600 500" stroke="green" fill="transparent" stroke-width="5"/>
-    <circle cx="100" cy="500" r="5" fill="red" />
-    <circle cx="700" cy="500" r="5" fill="blue" />
-    <!-- More track elements can go here -->
-  </svg>
-</div>
-<!-- End of Race Track Visualization -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race Track Visualization</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
+        svg { border: 1px solid #000; }
+    </style>
+</head>
+<body>
+    <h1>Complex Race Track SVG Visualization</h1>
+    <svg viewBox="0 0 800 400" width="800" height="400">
+        <path d="M100 300 Q 200 100, 300 300 T 500 300" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="100" cy="300" r="10" fill="red" />
+        <circle cx="300" cy="300" r="10" fill="red" />
+        <circle cx="500" cy="300" r="10" fill="red" />
+    </svg>
+</body>
+</html>
