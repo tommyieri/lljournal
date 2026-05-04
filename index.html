@@ -124,13 +124,6 @@
     50%       { transform: translateY(4px); }
   }
 
-  /* PIT LANE */
-  .pit-lane-wrap {
-    margin: 0 -40px;
-    overflow: hidden;
-    height: 82px;
-  }
-
   /* ARTICLES */
   .articles {
     max-width: 1200px;
@@ -245,11 +238,9 @@
     .footer-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
   }
   @media (max-width: 900px) {
-    .pit-lane-wrap { margin: 0 -20px; height: 72px; }
   }
   @media (max-width: 768px) {
     .masthead { height: 260px; }
-    .pit-lane-wrap { height: 60px; }
   }
 </style>
 </head>
@@ -538,29 +529,6 @@
         </animateMotion>
       </g>
       </g>
-    </svg>
-  </div>
-  <div class="pit-lane-wrap reveal reveal-2">
-    <svg class="track-scene" viewBox="0 0 1200 82" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <!-- Background verde -->
-      <rect width="1200" height="82" fill="#1a3a2a"/>
-      <!-- Asfalto pit lane (trapezio: allargato agli angoli per entrata/uscita) -->
-      <polygon points="0,4 125,16 1075,16 1200,4 1200,74 0,74" fill="#2a2a2a"/>
-      <!-- Pit wall line -->
-      <polyline points="0,4 125,16 1075,16 1200,4" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <!-- Cordolo entrata (sinistra) rosso/bianco -->
-      <polygon points="0,4 125,16 125,25 0,14" fill="rgba(204,26,0,0.55)"/>
-      <polygon points="0,14 125,25 125,33 0,24" fill="rgba(255,255,255,0.2)"/>
-      <!-- Cordolo uscita (destra) rosso/bianco -->
-      <polygon points="1075,16 1200,4 1200,14 1075,25" fill="rgba(204,26,0,0.55)"/>
-      <polygon points="1075,25 1200,14 1200,24 1075,33" fill="rgba(255,255,255,0.2)"/>
-      <!-- Linea tratteggiata centrale -->
-      <line x1="0" y1="45" x2="1200" y2="45" stroke="rgba(255,255,255,0.17)" stroke-width="1.5" stroke-dasharray="22 14"/>
-    
-      <!-- PCCI 2026 -->
-      <text x="600" y="40" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="rgba(255,255,255,0.65)" text-anchor="middle" letter-spacing="10">Porsche Carrera Cup Italia 2026</text>
-      <!-- Next round Misano 9-10 maggio -->
-      <text x="600" y="59" font-family="'JetBrains Mono', monospace" font-size="9" fill="rgba(255,255,255,0.38)" text-anchor="middle" letter-spacing="2.5">Next round Misano 9-10 maggio</text>
     </svg>
   </div>
   <div class="hero-bottom reveal reveal-3">
