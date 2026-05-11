@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+  <meta name="description" content="Porsche Carrera Cup Italia 2026, Gara 1 Misano: Bristot vince in notturna con record della pista in qualifica e diciotto giri in testa. Tre safety car, Michelin Cup a Brusa.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bristot accende Gara 1 a Misano — LLgrid</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #1a3a2a;
+    --bg-elev: #1f4530;
+    --bg-card: #173324;
+    --ink: #ffffff;
+    --ink-body: #c8d4cc;
+    --ink-dim: #7a9988;
+    --accent: #5dbd8a;
+    --line: rgba(255,255,255,0.12);
+    --line-strong: rgba(255,255,255,0.20);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink-body);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* TOP BAR */
+  .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(26, 58, 42, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .topbar a.brand-link { color: var(--ink); text-decoration: none; font-weight: 500; transition: color 0.2s; font-family: 'Fraunces', serif; font-style: italic; text-transform: none; font-size: 16px; letter-spacing: -0.01em; }
+  .topbar a.brand-link .ll { color: var(--accent); font-weight: 900; font-style: normal; }
+  .topbar a.brand-link:hover { color: var(--ink); opacity: 0.8; }
+  .topbar .progress-wrap { flex: 1; margin: 0 32px; height: 1px; background: var(--line); position: relative; max-width: 400px; }
+  .progress-bar { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent); width: 0%; transition: width 0.1s linear; }
+  .back-link { color: var(--ink-body); text-decoration: none; transition: color 0.2s; }
+  .back-link:hover { color: var(--accent); }
+
+  /* ARTICLE HEADER */
+  .article-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 140px 40px 60px;
+    position: relative;
+    z-index: 2;
+  }
+  .article-meta-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 60px;
+  }
+  .article-meta-top .category { color: var(--accent); }
+
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .kicker::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+
+  h1.article-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    font-variation-settings: "opsz" 144;
+    color: var(--ink);
+  }
+
+  .article-deck {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.5;
+    color: var(--ink-body);
+    max-width: 840px;
+    margin-bottom: 60px;
+  }
+
+  .byline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .byline-row .author { color: var(--ink); }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    max-width: 1400px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-visual-inner {
+    aspect-ratio: 21 / 9;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(93,189,138,0.25) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(93,189,138,0.10) 0%, transparent 50%),
+      var(--bg-card);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-visual-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 80px,
+      rgba(255,255,255,0.03) 80px,
+      rgba(255,255,255,0.03) 81px
+    );
+  }
+  .hero-visual .caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 16px;
+    text-align: right;
+  }
+  .visual-tag {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    z-index: 2;
+  }
+
+  /* SUMMARY CARD */
+  .summary {
+    max-width: 1000px;
+    margin: 0 auto 100px;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+  .summary-inner {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .summary-cell { display: flex; flex-direction: column; gap: 8px; }
+  .summary-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-dim); }
+  .summary-cell .value { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.2; color: var(--ink); }
+  .summary-cell .value strong { color: var(--accent); }
+
+  /* BODY */
+  .body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--ink-body);
+  }
+
+  .body h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 80px 0 28px;
+    color: var(--ink);
+  }
+  .body h2 .num {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    vertical-align: top;
+    margin-right: 14px;
+    padding-top: 12px;
+  }
+
+  .body p { margin-bottom: 28px; }
+  .body p strong { font-weight: 600; color: var(--ink); }
+  .body p em { font-style: italic; color: var(--ink-dim); }
+
+  .body > p:first-of-type::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 5.4em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.04em 0.1em -0.04em 0;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144;
+  }
+
+  /* TABLES */
+  .table-wrap { margin: 48px 0; overflow-x: auto; }
+  .table-caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .table-caption::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+
+  table { width: 100%; border-collapse: collapse; font-family: 'Fraunces', serif; font-size: 15px; }
+  thead th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-align: left;
+    padding: 14px 16px 14px 0;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  thead th:last-child { padding-right: 0; text-align: right; }
+  thead th.center { text-align: center; }
+
+  tbody td {
+    padding: 18px 16px 18px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-body);
+    vertical-align: middle;
+  }
+  tbody td:last-child { padding-right: 0; text-align: right; }
+  tbody td.center { text-align: center; }
+  tbody tr:hover { background: rgba(93,189,138,0.05); }
+
+  tbody td.pos { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: var(--ink-dim); width: 60px; }
+  tbody tr.first td.pos { color: var(--accent); }
+  tbody tr.first td { font-weight: 500; color: var(--ink); }
+  tbody tr.first { background: rgba(93,189,138,0.07); }
+  tbody td.driver { font-weight: 500; color: var(--ink); }
+  tbody td.team { color: var(--ink-dim); font-size: 14px; }
+  tbody td.time, tbody td.points { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; }
+
+  .table-note {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--ink-dim);
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* FOCUS BOX */
+  .focus-box {
+    margin: 64px 0;
+    padding: 48px;
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+  }
+  .focus-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  .focus-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 24px; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--ink); }
+  .focus-subtitle { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 16px; color: var(--ink-dim); line-height: 1.5; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .focus-box p { font-size: 16px; line-height: 1.7; margin-bottom: 18px; color: var(--ink-body); }
+  .focus-box p:last-child { margin-bottom: 0; }
+  .focus-box blockquote { margin: 20px 0; padding-left: 24px; border-left: 1px solid var(--line-strong); font-style: italic; color: var(--ink-dim); font-size: 16px; line-height: 1.6; }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    margin: 80px -40px;
+    padding: 0 40px;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(26px, 3.5vw, 40px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .pull-quote::before, .pull-quote::after { content: ''; display: block; width: 60px; height: 1px; background: var(--accent); margin: 32px auto; }
+  .pull-quote em { color: var(--accent); font-style: italic; }
+
+  /* END MARK */
+  .end-mark { text-align: center; margin: 80px 0 60px; font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 32px; color: var(--accent); }
+
+  /* ARTICLE FOOTER */
+  .article-footer { max-width: 760px; margin: 0 auto; padding: 60px 40px 40px; border-top: 1px solid var(--line); position: relative; z-index: 2; }
+  .back-btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border: 1px solid var(--line-strong);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-body);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .back-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* SITE FOOTER */
+  footer.site-foot { padding: 40px; border-top: 1px solid var(--line); position: relative; z-index: 2; margin-top: 80px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-dim); }
+  .brand-foot { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: 18px; text-transform: none; letter-spacing: -0.02em; color: var(--ink); }
+  .brand-foot .ll { color: var(--accent); font-weight: 900; font-style: normal; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); animation: reveal 1s cubic-bezier(0.2,0.8,0.2,1) forwards; }
+  .reveal-1 { animation-delay: 0.1s; }
+  .reveal-2 { animation-delay: 0.3s; }
+  @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 900px) {
+    .topbar { padding: 14px 20px; }
+    .topbar .progress-wrap { margin: 0 16px; }
+    .article-header { padding: 110px 20px 40px; }
+    .hero-visual { padding: 0 20px; margin-bottom: 60px; }
+    .hero-visual .hero-visual-inner { grid-template-columns: 1fr !important; }
+    .hero-visual .hero-visual-inner > div:first-child { display: none; }
+    .hero-visual .hero-visual-inner > div:last-child { height: 560px; }
+    .summary { padding: 0 20px; margin-bottom: 60px; }
+    .summary-inner { grid-template-columns: 1fr 1fr; gap: 20px; padding: 28px; }
+    .body, .article-footer { padding-left: 20px; padding-right: 20px; }
+    .focus-box { padding: 28px 20px; margin: 48px -20px; }
+    .pull-quote { margin: 60px -20px; padding: 0 20px; }
+    .article-meta-top { flex-direction: column; gap: 8px; align-items: flex-start; }
+    table { font-size: 13px; }
+    tbody td.team { display: none; }
+    thead th:nth-child(3) { display: none; }
+    .footer-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="brand-link"><span class="ll">LL</span>grid</a>
+  <div class="progress-wrap">
+    <div class="progress-bar" id="progress"></div>
+  </div>
+  <a href="index.html" class="back-link">← Indice</a>
+</div>
+
+<header class="article-header">
+  <div class="article-meta-top">
+    <span class="category">Carrera Cup Italia</span>
+    <span>N°1 · Vol. 01 — 2026</span>
+  </div>
+  <div class="article-title-block">
+    <div class="kicker reveal reveal-1">Round 3 — Misano, 9 Maggio 2026</div>
+    <h1 class="article-title reveal reveal-1">Bristot accende Gara 1 a Misano: la notte è tutta sua.</h1>
+    <p class="article-deck reveal reveal-2">Record della pista in qualifica, tre safety car gestite senza un battito di ciglia e diciotto giri tutti in testa. Andrea Bristot vince la prima gara in notturna della sua vita al Misano World Circuit.</p>
+    <div class="byline-row">
+      <span>Di <span class="author">Tommaso</span></span>
+      <span>10 min di lettura</span>
+      <span>9 Mag 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-visual">
+  <div class="hero-visual-inner" style="display:grid; grid-template-columns: 1fr 340px; background: var(--bg-card); overflow:hidden;">
+    <div style="position:relative;">
+      <span class="visual-tag">N°35 · Dinamic Motorsport</span>
+      <div style="position:absolute; bottom:32px; left:40px; font-family:'JetBrains Mono',monospace; font-size:clamp(80px,10vw,160px); font-weight:600; color:var(--accent); line-height:1; opacity:0.5; letter-spacing:-0.05em;">35</div>
+    </div>
+    <div style="overflow:hidden; height:100%;">
+      <img src="misano-bristot.jpeg" alt="Andrea Bristot — Misano Gara 1 2026" style="width:100%; height:100%; object-fit:cover; object-position:center 40%; display:block;">
+    </div>
+  </div>
+  <div class="caption">Misano World Circuit Marco Simoncelli — 09.05.2026 · Foto: Porsche Italia</div>
+</div>
+
+<div class="summary">
+  <div class="summary-inner">
+    <div class="summary-cell">
+      <span class="label">Vincitore</span>
+      <span class="value"><strong>Bristot</strong> #35</span>
+    </div>
+    <div class="summary-cell">
+      <span class="label">Pole / Record</span>
+      <span class="value">1'34"322</span>
+    </div>
+    <div class="summary-cell">
+      <span class="label">Giri completati</span>
+      <span class="value">18</span>
+    </div>
+    <div class="summary-cell">
+      <span class="label">Safety Car</span>
+      <span class="value">3 interventi</span>
+    </div>
+  </div>
+</div>
+
+<article class="body">
+
+  <p>Andrea Bristot ha fatto la prima gara in notturna della sua vita. E l'ha vinta. Con il record della pista in qualifica, tre safety car gestite senza un battito di ciglia e diciotto giri tutti in testa. Se venite dal calcio, dal ciclismo, da Netflix — non importa — questa è la storia giusta per avvicinarsi alla Porsche Carrera Cup Italia.</p>
+
+  <p>Perché Bristot non è un nome che si porta dietro un pedigree da Formula 2. È un ragazzo di Belluno, 25 anni, che ha fatto kart, poi si è fermato per un po', poi è tornato dalla porta dei campionati Mini e Midget. Nel mezzo: cinque titoli italiani di esport. Quando <strong>Dinamic Motorsport</strong> — uno dei team più titolati della storia del campionato, fondato da Maurizio Lusuardi — gli ha messo sotto i piedi una Porsche 911 GT3 Cup, lui è andato subito fortissimo. Ad Imola due terzi posti all'esordio. A Misano, la vittoria.</p>
+
+  <h2><span class="num">§ 01</span>Qualifica: un record e un caso diplomatico</h2>
+
+  <p>La giornata di sabato comincia sotto il sole di mattina, con la sessione di qualifica — pista calda, 32°C sull'asfalto, 19°C nell'aria. Una battaglia nella quale i primi 19 piloti si sono infilati tutti in meno di un secondo. Roba che nei campionati nazionali non si vede spesso.</p>
+
+  <p>Bristot fa il giro della vita: <strong>1'34"322</strong>. Nuovo record assoluto del circuito per le 911 GT3 Cup. Dietro, in seconda e terza posizione, Delli Guanti del Team Q8 Hi Perform e Aldo Festante di Target — separati da appena quindici millesimi. Poi Haughton, Butti, Bertuca. Una lotta vera, senza quasi respiro.</p>
+
+  <p>Il caso diplomatico riguarda <strong>Senna Van Soelen</strong>. L'olandese di Target gira in 1'34"091 — sarebbe stata pole position di quasi tre decimi, roba da dominio. Cancellata per limiti di pista. Poi gira 1'34"533. Cancellata pure quella. Risultato finale: ottavo. Dal potenziale dominio alle retrovie per qualche centimetro di asfalto oltre la linea bianca.</p>
+
+  <aside class="focus-box">
+    <div class="focus-label">Box Regolamento · Track Limits</div>
+    <h3 class="focus-title">Il giro che sparisce</h3>
+    <p class="focus-subtitle">La storia di Van Soelen in qualifica — dalla pole teorica all'ottava posizione — è il modo migliore per capire come funziona la cancellazione dei giri per limiti di pista.</p>
+    <p>La regola è semplice nel principio: ogni giro in cui una vettura supera con tutte e quattro le ruote la linea bianca che delimita la pista viene annullato automaticamente. Non è una penalità decisa dai commissari dopo deliberazione: è una cancellazione tecnica e istantanea, gestita dal sistema di cronometraggio che monitora curva per curva.</p>
+    <p>Guardando il documento ufficiale di qualifica, sembra quasi un tabellone della Borsa nei giorni di crollo: numeri che compaiono e spariscono, cancellati uno dopo l'altro. Van Soelen ne perde due in punti diversi del tracciato. Risultato: il tempo che sarebbe stato pole scompare come se non fosse mai esistito.</p>
+    <p>In gara il meccanismo cambia: i track limit non cancellano il tempo del giro automaticamente, ma generano prima dei warning — bandiere avviso ai box — e poi, in caso di recidiva, possono portare a sanzioni temporali decise dai commissari. È per questo che dopo gara 1 c'è stato un lungo lavoro notturno da parte degli steward, con verdetti definitivi solo a cose fatte e conseguenze anche sulla griglia di partenza di gara 2.</p>
+    <blockquote>La pista finisce dove finisce la riga bianca. Non dove si trova il cordolo, non dove inizia la ghiaia. La riga bianca.</blockquote>
+  </aside>
+
+  <h2><span class="num">§ 02</span>La gara: tre atti, un protagonista</h2>
+
+  <p>Ore 21:10. I fari delle 911 si accendono, i riflettori del Misano World Circuit illuminano i 4.226 metri del circuito intitolato a Marco Simoncelli. Trentadue piloti pronti a partire.</p>
+
+  <p>Partenza pulita davanti: Bristot tiene la prima curva, Delli Guanti è incollato, Festante e Haughton si battono per il terzo posto. Già al secondo giro arriva la prima safety car: contatto tra Andrea D'Amico e il canadese <strong>Zachary Taylor</strong>, al debutto assoluto in carriera su una macchina vera dopo tre anni di kart. Per entrambi la serata finisce qui.</p>
+
+  <p>Zachary è il fratello minore di Nicolas, che invece chiuderà la gara in quattordicesima posizione assoluta — un risultato notevole per un debutto nel campionato. I due corrono per <strong>PMA Motorsport</strong>, squadra di Paolo Ansaloni che viene dal mondo TCR e che ha già presentato richiesta per una presenza stabile nel PCCI a partire dal 2027. Un ingresso in punta di piedi, con ambizioni chiare.</p>
+
+  <p>Giro 7, Ermanno Quintieri di Omnia Motorsport finisce nella ghiaia alla Quercia — la curva lunga a sinistra dove serve staccare forte ma soprattutto uscire bene per il tratto veloce che porta al Tramonto. Safety car di nuovo. Fino a quel momento Bristot aveva costruito un margine su Delli Guanti che sembrava destinato a crescere, ma con la seconda SC tutto si azzera di nuovo. Alla ripartenza Bristot non sbaglia nulla.</p>
+
+  <p>Non sbaglia soprattutto <strong>Harley Haughton</strong>: il ventunenne di Manchester portato in Italia da Enrico Fulgenzi Racing dopo le esperienze endurance al Nürburgring attacca Festante all'esterno della prima curva, lo supera di forza e si prende il terzo posto. Da quel momento non si volta più.</p>
+
+  <div class="pull-quote">
+    Bristot non sbaglia nulla. Diciotto giri tutti in testa, tre safety car gestite <em>senza un battito di ciglia</em>.
+  </div>
+
+  <p>Nel frattempo Delli Guanti — studente di ingegneria meccanica, alfiere ufficiale del Team Q8 Hi Perform — è sempre lì, a pochi decimi, preciso. Aspetta il momento giusto. Il momento non arriva mai, e lui gestisce senza sprecare nulla.</p>
+
+  <p>Giro 13, al Curvone, Martinez e Mezzetti si toccano. Luciano Martinez di Ombra Racing sbatte contro le barriere. Il pilota argentino esce illeso, ma la safety car entra di nuovo e questa volta non c'è tempo per un'altra ripartenza vera: la gara finisce sotto le luci gialle. Classifica congelata.</p>
+
+  <p>Chiude la serata una nota amara: <strong>Lirim Zendeli</strong> di BeDriver, il pilota con il curriculum più internazionale dell'intera griglia — Formula 3, Formula 2, USF Pro 2000 americana — è fuori al giro 13 per un problema tecnico apparentemente legato a un contatto con una vettura che rientrava in pista. Una gara che meritava di più.</p>
+
+  <div class="table-wrap">
+    <div class="table-caption">Podio Assoluta — Gara 1 Misano</div>
+    <table>
+      <thead><tr><th>Pos.</th><th>Pilota</th><th>Team</th><th>Gap</th></tr></thead>
+      <tbody>
+        <tr class="first"><td class="pos">1°</td><td class="driver">Bristot #35 (R)</td><td class="team">Dinamic Motorsport</td><td class="time">—</td></tr>
+        <tr><td class="pos">2°</td><td class="driver">Delli Guanti #8</td><td class="team">Team Q8 Hi Perform</td><td class="time">+gap SC</td></tr>
+        <tr><td class="pos">3°</td><td class="driver">Haughton #11 (R)</td><td class="team">Enrico Fulgenzi Racing</td><td class="time">+gap SC</td></tr>
+        <tr><td class="pos">4°</td><td class="driver">Festante #7</td><td class="team">Target</td><td class="time">+gap SC</td></tr>
+        <tr><td class="pos">14°</td><td class="driver">N. Taylor (R)</td><td class="team">PMA Motorsport</td><td class="time">debutto</td></tr>
+      </tbody>
+    </table>
+    <div class="table-note">(R) = Rookie. La gara si è conclusa sotto safety car al giro 18 dopo il contatto Martinez–Mezzetti.</div>
+  </div>
+
+  <h2><span class="num">§ 03</span>Michelin Cup: Brusa e il tempismo da maestro</h2>
+
+  <p>Mentre davanti si correva per il podio assoluto, nella Michelin Cup si consumava una storia a sé. <strong>Cesare Brusa</strong> di Prima Ghinzani Motorsport — che rappresenta il Centro Porsche Padova — partito trentesimo in griglia assoluta, ha risalito posizioni con pazienza e ha trovato il momento giusto: sorpasso su Alex De Giacomi di Ebimotors proprio all'imbocco dell'ultima safety car, che ha poi congelato la classifica.</p>
+
+  <p>Un colpo d'occhio che vale una vittoria di categoria. Secondo De Giacomi, terzo Andrea Girondi di Enrico Fulgenzi Racing.</p>
+
+  <div class="table-wrap">
+    <div class="table-caption">Classifica Michelin Cup — Gara 1 Misano</div>
+    <table>
+      <thead><tr><th>Pos.</th><th>Pilota</th><th>Team</th><th>Punti</th></tr></thead>
+      <tbody>
+        <tr class="first"><td class="pos">1°</td><td class="driver">Brusa #56</td><td class="team">Prima Ghinzani Msp.</td><td class="points">15 pt</td></tr>
+        <tr><td class="pos">2°</td><td class="driver">De Giacomi #67</td><td class="team">Ebimotors</td><td class="points">12 pt</td></tr>
+        <tr><td class="pos">3°</td><td class="driver">Girondi #88</td><td class="team">Enrico Fulgenzi Racing</td><td class="points">10 pt</td></tr>
+      </tbody>
+    </table>
+    <div class="table-note">Brusa conquista il sorpasso decisivo proprio all'imbocco dell'ultima safety car.</div>
+  </div>
+
+  <h2><span class="num">§ 04</span>Il podio e cosa cambia</h2>
+
+  <p>Bristot, Delli Guanti, Haughton. Tre piloti sul podio della gara più spettacolare del calendario. In classifica assoluta, <strong>Bristot sale al comando con 62 punti</strong> — due in più di Delli Guanti, sempre sul podio ma ancora in cerca della vittoria. Van Soelen insegue a 56, Quaresmini a 47. Il campionato è già strettissimo, e siamo al terzo round su dodici.</p>
+
+  <div class="table-wrap">
+    <div class="table-caption">Classifica Piloti — dopo Round 3</div>
+    <table>
+      <thead><tr><th>Pos.</th><th>Pilota</th><th>Team</th><th>Punti</th></tr></thead>
+      <tbody>
+        <tr class="first"><td class="pos">1°</td><td class="driver">Bristot #35</td><td class="team">Dinamic Motorsport</td><td class="points">62 pt</td></tr>
+        <tr><td class="pos">2°</td><td class="driver">Delli Guanti #8</td><td class="team">Team Q8 Hi Perform</td><td class="points">60 pt</td></tr>
+        <tr><td class="pos">3°</td><td class="driver">Van Soelen #14</td><td class="team">Target</td><td class="points">56 pt</td></tr>
+        <tr><td class="pos">4°</td><td class="driver">Quaresmini #32</td><td class="team">Prima Ghinzani Msp.</td><td class="points">47 pt</td></tr>
+      </tbody>
+    </table>
+    <div class="table-note">Classifica provvisoria, in attesa dei verdetti degli steward su eventuali ulteriori penalità da gara 1.</div>
+  </div>
+
+  <div class="end-mark">✦</div>
+
+</article>
+
+<div class="article-footer">
+  <a href="index.html" class="back-btn">← Torna all'indice</a>
+</div>
+
+<footer class="site-foot">
+  <div class="footer-inner">
+    <span class="brand-foot"><span class="ll">LL</span>grid</span>
+    <span>© 2026 · Milano</span>
+  </div>
+</footer>
+
+<script>
+  const progressBar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    progressBar.style.width = ((document.documentElement.scrollTop / h) * 100) + '%';
+  });
+</script>
+
+</body>
+</html>
