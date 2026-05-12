@@ -2,15 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://llgrid.com/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://llgrid.com/articolo-imola-quaresmini.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://llgrid.com/articolo-misano-bristot.html</loc>
@@ -19,8 +13,14 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://llgrid.com/articolo-misano-bristot-gara2.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://llgrid.com/classifiche.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
